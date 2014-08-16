@@ -1,0 +1,34 @@
+{
+  "name": "dockerode-optionator",
+  "version": "1.0.0",
+  "description": "normalize docker-related environment variables for dockerode's connection object",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --recursive test",
+    "tdd": "mocha -w --recursive test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keyvanfatehi/dockerode-optionator.git"
+  },
+  "keywords": [
+    "docker",
+    "dockerode"
+  ],
+  "author": "Keyvan Fatehi <keyvanfatehi@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keyvanfatehi/dockerode-optionator/issues"
+  },
+  "homepage": "https://github.com/keyvanfatehi/dockerode-optionator",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "uri-js": "^1.4.2"
+  }
+}
