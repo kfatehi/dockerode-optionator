@@ -51,4 +51,30 @@ describe("#normalizeOptions()", function() {
       })
     });
   });
+
+  describe("loading certs", function() {
+    it("loads certs if DOCKER_CERT_PATH valid", function() {
+      var out = fn({}, { DOCKER_CERT_PATH: __dirname + '/certs' });
+
+      expect(out).to.have.ownProperty('ca');
+      expect(out).to.have.ownProperty('cert');
+      expect(out).to.have.ownProperty('key');
+    });
+
+    it("ignores if DOCKER_CERT_PATH is invalid", function() {
+      var out = fn({}, { DOCKER_CERT_PATH: __dirname + '/certz' });
+
+      expect(out).to.not.have.ownProperty('ca');
+      expect(out).to.not.have.ownProperty('cert');
+      expect(out).to.not.have.ownProperty('key');
+    });
+
+    it("ignores if DOCKER_CERT_PATH is not set", function() {
+      var out = fn({}, {});
+
+      expect(out).to.not.have.ownProperty('ca');
+      expect(out).to.not.have.ownProperty('cert');
+      expect(out).to.not.have.ownProperty('key');
+    });
+  });
 });
