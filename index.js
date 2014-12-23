@@ -29,7 +29,7 @@ module.exports = {
     }
 
     if (certsPath) {
-      out = loadCerts(certsPath);
+      out = loadCerts(certsPath, out);
     }
 
     return out;
