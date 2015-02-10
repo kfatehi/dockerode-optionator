@@ -19,7 +19,6 @@ module.exports = {
       if (uri.scheme === 'http' || uri.scheme === 'tcp') {
         out.host = uri.host;
         out.port = uri.port;
-        out.protocol = uri.scheme;
       } else if (uri.scheme === 'unix' || uri.path) {
         out.socketPath = uri.path;
       } else {
