@@ -5,11 +5,16 @@ var URI = require('uri-js');
 module.exports = {
   normalizeOptions: function (options, env) {
     if (!options) options = {};
+    var version = options.version || env.DOCKER_API_VERSION;
     var host = options.host || env.DOCKER_IP;
     var port = options.port || env.DOCKER_PORT;
     var fullHost = options.docker_host || env.DOCKER_HOST;
     var certsPath = options.certsPath || env.DOCKER_CERT_PATH;
     var out = {};
+    
+    if (version) {
+      out.version = version;
+    }
 
     if (host && port) {
       out.host = host;
